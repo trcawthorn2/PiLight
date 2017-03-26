@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'pie-light-controller',
+    modulePrefix: 'PiLight',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

@@ -1,7 +1,7 @@
 {
-  "name": "pie-light-controller",
+  "name": "PiLight",
   "version": "0.0.0",
-  "description": "Small description for pie-light-controller goes here",
+  "description": "PiLight",
   "license": "MIT",
   "author": "",
   "directories": {
