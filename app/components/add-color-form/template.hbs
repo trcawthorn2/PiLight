@@ -1,0 +1,57 @@
+<div {{action 'showForm'}}>
+{{fa-icon 'plus' size='3'}}
+</div>
+
+{{#if isShowingForm}}
+<div class='colorSelector'>
+    <center>
+        <div>
+            {{#each defaultColors as |color|}}
+                <span {{action 'sendColor' color}} class='circle' style='background-color:rgb({{color.red}},{{color.green}},{{color.blue}})'></span>
+            {{/each}}
+             <span {{action 'addCustomColor'}} class='circle custom' style='background-color:rgb(255,255,255)'> {{fa-icon 'paint-brush' size=4}}</span>
+        </div>
+         {{ui-slider 
+            value=percentage
+            min=0
+            max=100 
+            step=5
+            tooltip='hide'
+        }}
+        <span class='settings'>
+        {{input id=(concat elementId '-sound') type="checkbox" name="Sound Enabled" checked=soundEnabled}}
+        <label for="{{concat elementId '-sound'}}">Enable Sound</label>       
+        </span>
+        <span class='settings'>
+        {{input id=(concat elementId '-fade') type="checkbox" name="Fade" checked=fadeEnabled}}
+        <label for="{{concat elementId '-fade'}}">Fade</label>       
+        </span>
+    </center>
+</div>
+{{/if}}
+
+{{#if isShowingCustomColorForm}}
+<div class='addForm'>
+    <span class='close' {{action 'closeCustomColor'}}>{{fa-icon 'times'}}</span>
+    <div>
+        {{col-pick value=color colpickLayout='hex'}}
+    </div>
+    <div class='settings'>
+        {{ui-slider 
+            value=percentage
+            min=0
+            max=100 
+            step=5
+            tooltip='hide'
+        }}
+        {{input id=(concat elementId '-sound') type="checkbox" name="Sound Enabled" checked=soundEnabled}}
+        <label for="{{concat elementId '-sound'}}">Enable Sound</label>   
+        <br>
+        {{input id=(concat elementId '-fade') type="checkbox" name="Fade" checked=fadeEnabled}}
+        <label for="{{concat elementId '-fade'}}">Fade</label>           
+    </div>
+    <div class='save' {{action 'sendCustomerColor'}}>
+        {{fa-icon 'paper-plane' size='lg'}}
+    </div>
+</div>
+{{/if}}

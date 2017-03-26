@@ -1,0 +1,13 @@
+<div class="bar {{if isSelectingColor 'open'}}">
+    <div class='menu' {{action 'selectColor'}}>
+        {{fa-icon "bars" size="lg"}}
+    </div>
+    {{#if isSelectingColor}}
+        <div class='list'>
+            {{#each colors as |color|}}
+            {{color-card color=color remove=(action 'removeColor') send=(action 'sendColor')}}
+            {{/each}}
+        </div>
+        {{light-control-bar off=(action 'powerOff') sequence=(action 'sequence')}}
+    {{/if}}
+</div>

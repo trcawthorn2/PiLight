@@ -1,0 +1,32 @@
+<div style="background-color: {{backgroundColor}}" class='card' id="card-{{color.id}}">
+    <span class='color'>
+        R:{{input value=color.red}}
+        G:{{input value=color.green}}
+        B:{{input value=color.blue}}
+    </span>
+    <span class='send'>
+        {{fa-icon "times" size="lg" click=(action 'removeColor')}}
+    </span>
+    <div>
+        {{ui-slider 
+            value=color.percentage 
+            min=0
+            max=100 
+            step=5
+            tooltip='hide'
+        }}
+        <span class='settings'>
+            {{input id=(concat elementId '-sound') type="checkbox" name="Sound Enabled" checked=color.soundEnabled}}
+            <label for="{{concat elementId '-sound'}}">Enable Sound</label>       
+        </span>
+        <span class='settings'>
+            {{input id=(concat elementId '-fade') type="checkbox" name="Fade" checked=color.fadeEnabled}}
+            <label for="{{concat elementId '-fade'}}">Fade</label>       
+        </span>
+        
+        <span class='send'>
+            {{fa-icon "paper-plane" size="lg" click=(action 'sendColor')}}
+        </span>
+        
+    </div> 
+</div>
