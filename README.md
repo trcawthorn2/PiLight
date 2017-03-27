@@ -39,7 +39,14 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+* Install piRGB-server
+  * Follow instructions to deploy the server (https://github.com/Abhorsen99/piRGB-server)
+* Install hosting server (apache example)
+  * `sudo apt-get install apache2 -y`
+* Build and Deploy the app to the pi
+  * `ember build --environment production`
+  * copy contents of the dist folder to pi
+  * move the contents to the hosted directory (/var/www/html)
 
 ## Further Reading / Useful Links
 

@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('color-picker');
+  this.route('color-picker', { path: '/' });
 });
 
 export default Router;
