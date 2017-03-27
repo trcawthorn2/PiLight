@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Service.extend({
     ajax: Ember.inject.service(),
     parseColor(lightColor){
+        console.error(lightColor);
+        console.error(lightColor.get('blue'));
         let color = {
             red: lightColor.get('red'),
             blue: lightColor.get('blue'),
@@ -16,7 +18,7 @@ export default Ember.Service.extend({
     },
     powerOff(){
         let uri = this.getURI();
-        this.get('ajax').request(uri+ "/off", {method: "POST", data: {"fade":true}});
+        this.get('ajax').request(uri+ "/off", {method: "POST", data: JSON.stringify({"fade":true})});
     },
     changeLightColor(lightColor){
         let uri = this.getURI();
