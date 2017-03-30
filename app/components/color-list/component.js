@@ -16,6 +16,7 @@ export default Ember.Component.extend({
         sendColor(color){
             let lightManager = this.get('lightManager');
             lightManager.changeLightColor(color);
+            this.set('isSelectingColor', false);
         },
         powerOff(){
             this.get('lightManager').powerOff();
@@ -28,6 +29,7 @@ export default Ember.Component.extend({
                 interval = 10;
             }
             lightManager.sequence(colorSequence, interval);
+            this.set('isSelectingColor', false);
         }
     }
 });
