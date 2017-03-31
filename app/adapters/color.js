@@ -25,14 +25,11 @@ export default DS.JSONAPIAdapter.extend({
                 colors = [];
             }
             for(var i =0; i < colors.length; i++){
-                if(colors[i].id === snapshot.id){
+                if(colors[i].id.toString() === snapshot.id.toString()){
                     colors.splice(i, 1);
                     break;
                 }
             }
-
-            console.error(colors);
-
             localStorage.setItem("colors", JSON.stringify(colors));
             resolve();
         });
